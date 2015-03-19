@@ -8,7 +8,7 @@ public class Messanger {
 	String [][] currentState;
 	String status;
 	
-	Messanger()
+	public Messanger()
 	{
 		url = "http://localhost:8080/";
 		template = new RestTemplate();
@@ -30,5 +30,12 @@ public class Messanger {
 	public void performMove(int x, int y)
 	{
 		Move move = template.getForObject(url + "move?x=" + x +"&y=" + y, Move.class);
+		currentState = move.getGameState();
 	}
+	
+	public MatchedGame findGame(String game, String user) {
+		MatchedGame matched = template.getForObject(url + "findgame?game=" + game + "&user=" + user, MatchedGame.class);
+		return matched;
+	}
+	
 }

@@ -1,3 +1,5 @@
+package baseClasses;
+
 public abstract class GameObject {
 	
 	protected String type;

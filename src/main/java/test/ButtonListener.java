@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import baseClasses.GUIBoard;
 import test.SqlCommand;
+
 
 public class ButtonListener implements ActionListener {
 
@@ -34,15 +34,17 @@ public class ButtonListener implements ActionListener {
 			SqlCommand.createNewUser(username);
 		} 
 		else {
-			
+			Messanger messenger = new Messanger();
+			MatchedGame game = messenger.findGame(name, username);
 			GUIBoard view;
+			String [][] state = game.getGameState();
 			System.out.println("Opened: " + name);
 			if (name.equals("Othello"))
-				view = new GUIBoard("Othello", 8);
-			else if (name.equals("Tic Tac Toe"))
-				view = new GUIBoard("Tic Tac Toe", 3);
+				view = new GUIBoard("Othello", 8, state);
+			else if (name.equals("TicTacToe"))
+				view = new GUIBoard("TicTacToe", 3, state);
 			else if (name.equals("Battleship"))
-				view = new GUIBoard("Battleship", 10);
+				view = new GUIBoard("Battleship", 10, state);
 			else
 				System.out.println("NO AVAILABLE GAME");
 			}

@@ -26,11 +26,11 @@ public class MainMenuFrame extends JFrame {
 		JPanel textPanel = new JPanel();
 		userID = new JTextField(10);
 		
-		b_Button = new JButton("BattleShip");
+		b_Button = new JButton("Battlehhip");
 		b_Button.addActionListener(new ButtonListener("Battleship", 10));
 		
-		t_Button = new JButton("Tic Tac Toe");
-		t_Button.addActionListener(new ButtonListener("Tic Tac Toe", 3));
+		t_Button = new JButton("TicTacToe");
+		t_Button.addActionListener(new ButtonListener("TicTacToe", 3));
 		
 		o_Button = new JButton("Othello");
 		o_Button.addActionListener(new ButtonListener("Othello", 10));

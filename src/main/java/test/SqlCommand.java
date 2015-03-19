@@ -1,5 +1,4 @@
 package test;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,7 +9,7 @@ import java.util.List;
 
 public class SqlCommand {
 	// Inserts a game request into the matchmaking table for the given game using the given userid
-	public static void createGameRequest(String game, int userid) {
+	public static void createGameRequest(String game, String userid) {
 		Connection con = null;
 		PreparedStatement pst = null;
 		int rs;
@@ -24,7 +23,7 @@ public class SqlCommand {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, password);
-			pst = con.prepareStatement("INSERT INTO " + table + "(userid) VALUES (" + userid + ");");
+			pst = con.prepareStatement("INSERT INTO " + table + "(userid) VALUES ('" + userid + "');");
 			rs = pst.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -47,7 +46,7 @@ public class SqlCommand {
 	}
 	
 	// Returns a list of game requests that are not requested by the given userid
-	public static List<String> retrieveListOfGameRequests(String game, int userid) {
+	public static List<String> retrieveListOfGameRequests(String game, String userid) {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
