@@ -3,17 +3,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Move {
-
-    private String id;
-    private String gameId;
-    private String[][] gameState;
+	private String[][] gameState;
+    private String currentTurn;
+    private String currentStatus;
     
-    public String getId() {
-        return id;
+//    public Move(String[][] gameState, String currentStatus, String currentTurn)
+//	{
+//		this.gameState = gameState;
+//		this.currentStatus = currentStatus;
+//		this.currentTurn = currentTurn;
+//	}
+//    
+    public String getCurrentTurn() {
+        return currentTurn;
     }
     
-    public String getGameId() {
-        return gameId;
+    public String getCurrentStatus() {
+        return currentStatus;
     }
     
     public String[][] getGameState() {

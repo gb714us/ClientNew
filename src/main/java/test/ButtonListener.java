@@ -40,11 +40,11 @@ public class ButtonListener implements ActionListener {
 			String [][] state = game.getGameState();
 			System.out.println("Opened: " + name);
 			if (name.equals("Othello"))
-				view = new GUIBoard("Othello", 8, state);
+				view = new GUIBoard("Othello", 8, messenger);
 			else if (name.equals("TicTacToe"))
-				view = new GUIBoard("TicTacToe", 3, state);
+				view = new GUIBoard("TicTacToe", 3, messenger);
 			else if (name.equals("Battleship"))
-				view = new GUIBoard("Battleship", 10, state);
+				view = new GUIBoard("Battleship", 10, messenger);
 			else
 				System.out.println("NO AVAILABLE GAME");
 			}
